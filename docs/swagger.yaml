@@ -1,0 +1,47 @@
+definitions:
+  models.Product:
+    properties:
+      created_at:
+        type: string
+      currency:
+        type: string
+      deleted_at:
+        type: string
+      description:
+        type: string
+      id:
+        type: string
+      image_url:
+        type: string
+      name:
+        type: string
+      price:
+        type: number
+      price_in_cents:
+        type: integer
+      sku:
+        type: string
+      stock:
+        type: integer
+      updated_at:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /products/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get string by ID
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Product'
+      summary: Show a product
+      tags:
+      - products
+swagger: "2.0"

@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "e0875971-ecd9-4a39-bea6-af90e8e9db34",
+		"name": "api-ecommerce",
+		"description": "documentation for different endpoint over ecommerce api exam",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4429595"
+	},
+	"item": [
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Motorola\",\n    \"description\": \"telefono pro\",\n    \"sku\": \"12668\",\n    \"stock\": 150,\n    \"image_url\": null,\n    \"price\": 350.53,\n    \"price_in_cents\": 35053\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/products",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"{{product_id}}\",\n    \"name\": \"Motorola\",\n    \"description\": \"phone pro\",\n    \"sku\": \"12668\",\n    \"stock\": 150,\n    \"image_url\": null,\n    \"price\": 350.53,\n    \"price_in_cents\": 35053\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/products",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/products",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get product by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/products/{{product_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"products",
+						"{{product_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a product by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"iphone  15 Pro\",\n    \"description\": \"telefono pro\",\n    \"sku\": \"12668\",\n    \"stock\": 150,\n    \"image_url\": null,\n    \"price\": 350.53,\n    \"price_in_cents\": 35053\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/products/{{product_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"products",
+						"{{product_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get cart info by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_id\": \"5be2ed85-ee18-4b56-9460-353cd7859e06\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9998/cart/b8707c74-ddd1-4bc0-85f8-2d0a09971f31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9998",
+					"path": [
+						"cart",
+						"b8707c74-ddd1-4bc0-85f8-2d0a09971f31"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add product to Cart into an empty cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_id\": \"{{product_id}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/cart",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a product into a existent cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_id\": \"{{product_id}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/cart/{{cart_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"cart",
+						"{{cart_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove product from cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_id\": \"{{product_id}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/cart/{{cart_id}}/remove",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"cart",
+						"{{cart_id}}",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get cart info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/cart/{{cart_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"cart",
+						"{{cart_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
